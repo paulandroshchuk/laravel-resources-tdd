@@ -8,7 +8,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class RegisterTest extends TestCase
 {
-    use DatabaseMigrations;
     use RefreshDatabase;
 
     /**

@@ -22,6 +22,6 @@ class Controller extends BaseController
     public function interact($interactionInstance, $data, $method = null)
     {
         return app(\App\Contracts\Interactions\Interaction\Interaction::class)
-            ->interact($interactionInstance, [$data], $method);
+            ->interact($interactionInstance, $data, $method);
     }
 }

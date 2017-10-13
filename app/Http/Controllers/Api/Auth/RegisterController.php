@@ -17,7 +17,7 @@ class RegisterController extends Controller
      */
     public function store(RegisterRequest $request)
     {
-        $user = $this->interact(CreateUserInteraction::class, $request->validated());
+        $user = $this->interact(CreateUserInteraction::class, [$request->validated()]);
 
         return new UserResource($user);
     }

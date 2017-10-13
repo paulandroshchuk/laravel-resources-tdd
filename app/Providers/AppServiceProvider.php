@@ -32,5 +32,10 @@ class AppServiceProvider extends ServiceProvider
             \App\Contracts\Interactions\Users\CreateUserInteraction::class,
             \App\Interactions\Users\CreateUserInteraction::class
         );
+
+        $this->app->singleton(
+            \App\Contracts\Interactions\Teams\CreateTeamInteraction::class,
+            \App\Interactions\Teams\CreateTeamInteraction::class
+        );
     }
 }
