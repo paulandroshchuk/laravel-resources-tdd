@@ -23,6 +23,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->singleton(
+            \App\Contracts\Interactions\Interaction\Interaction::class,
+            \App\Interactions\Interaction\Interaction::class
+        );
+
+        $this->app->singleton(
+            \App\Contracts\Interactions\Users\CreateUserInteraction::class,
+            \App\Interactions\Users\CreateUserInteraction::class
+        );
     }
 }
