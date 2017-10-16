@@ -25,7 +25,7 @@ class UserCanCreateTeamTest extends TestCase
             'name'  =>  $teamName,
         ]);
 
-        $response = $this->postJson("/api/users/$user/teams", [
+        $response = $this->postJson(route('api.teams.store', ['user' => $user]), [
             'name'  => $teamName,
         ]);
 
