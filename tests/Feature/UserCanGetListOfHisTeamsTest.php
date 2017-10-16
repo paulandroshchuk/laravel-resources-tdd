@@ -16,6 +16,23 @@ class UserCanGetListOfHisTeamsTest extends TestCase
      */
     public function testUserCanGetListOfHisTeams()
     {
-        $this->assertTrue(true);
+        $user = factory(\App\Models\User::class)->create();
+        $team = factory(\App\Models\Team::class)->create();
+        $user->teams()->attach($team, [
+            'role'  =>  'owner'
+        ]);
+
+        $this->be($user);
+
+        $response = $this->getJson(route('api.teams.index', ['user' => $user]));
+        $response->assertStatus(200);
+        $response->assertJsonStructure([
+            'data'  =>  [
+                '*' =>  [
+                    'id',
+                    'name'
+                ]
+            ]
+        ]);
     }
 }
