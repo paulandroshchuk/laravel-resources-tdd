@@ -13,10 +13,10 @@
 
 $router->post('/auth/register', 'Api\Auth\RegisterController@store');
 
-$router->group([
-    'as'  =>  'api.'
-], function ($router) {
+$router->group(['as'  =>  'api.'], function ($router) {
     $router->resource('/users/{user}/teams', 'Api\Teams\TeamsController')
-        ->middleware('auth')
+        ->middleware('auth:api')
         ->except(['create']);
+
+    $router->resource('/shops', 'Api\Shops\ShopsController');
 });

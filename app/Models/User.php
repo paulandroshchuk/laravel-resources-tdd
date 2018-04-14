@@ -36,4 +36,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Team::class, 'team_users');
     }
+
+    /**
+     * Get a list of user shops.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function shops()
+    {
+        return $this->belongsToMany(Shop::class,'shop_users');
+    }
 }
